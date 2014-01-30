@@ -1,0 +1,102 @@
+#this is a unit converter inspired by : http://pastebin.com/87R3YuMF, but written by hand for Python 3.3 and to iron out bugs.
+
+#Main user choice menu is defined here
+def menu():
+	print('Please choose a number from the list below')
+	print('|--------Temperature--------|')
+	print('1 - From Celsius to Fahrenheit')
+	print('2 - From Fahrenheit to Celsius')
+	print('|--------Length--------|')
+	print('3 - From Centimeters to Inches')
+	print('4 - From Inches to Centimeters')
+	print('5 - From Meters to Feet')
+	print('6 - From Feet to Meters')
+	print('|--------Weight--------|')			
+	print('7 - From Grams to Pounds')
+	print('8 - From Pounds to Grams')			
+	print('9 - From Kilograms to Stones')
+	print('10 - From Stones to Kilograms')
+	print('|---------------------|')
+
+#List of conversion formulae
+#Celsius to Fahrenheit
+def CToF(degree):
+	farenheit = ((degree * 9)/5) + 30
+	print (farenheit);
+#Fahrenheit to Celsius
+def FToC(degree):
+	celsius = ((degree -32) *5) /9
+	print (celsius);
+#Centimeters to Inches
+def CToI(cent):
+	inches = cent * 0.3937008
+	print (inches);
+#Inches to Centimeters
+def IToC(inches):
+	cent = inches * 2.54
+	print (cent);
+#Meters to Feet
+def MToF(meter):
+	feet = meter * 3.2808
+	print (feet);
+#Feet to Meters	
+def FToM(feet):
+	meter = feet / 3.2808
+	print (meter);
+#Grams to Pounds
+def GToP(gram):
+	pounds = gram * 0.002205 
+	print (pounds);
+#Pounds to Grams
+def PToG(pound):
+	gram = pound / 0.002205
+	print (gram);
+#Kilograms to Stones
+def KGToS(kilo):
+	stone = kilo * 0.15747
+	print(stone);
+#Stones to Kilograms
+def SToKG(stone):
+	kilo = stone / 0.15747
+	print (kilo);
+
+#The user interacts with the program here
+def userchoice():
+	menu();
+	while True:
+		try:
+			choice = input('Please enter the list number you have chosen (for your conversion): ')
+			unit = float(input('PLease enter the unit number you are converting from: '))
+			if (choice == '1'):
+				CToF(unit);
+				break
+			elif (choice == '2'):
+				FToC(unit);
+				break
+			elif (choice == '3'):
+				CToI(unit);
+				break
+			elif (choice == '4'):
+				IToC(unit);
+				break
+			elif (choice == '5'):
+				MToF(unit);
+				break
+			elif (choice == '6'):
+				FToM(unit);
+				break
+			elif (choice == '7'):
+				GToP(unit);
+				break
+			elif (choice == '8'):
+				PToG(unit);
+				break
+			elif (choice == '9'):
+				KGToS(unit);
+				break
+			elif (choice == '10'):
+				SToKG(unit);
+				break
+		except ValueError:
+			print ('You must enter a number from 1 to 9!', choice)
+userchoice()
